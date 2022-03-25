@@ -1,4 +1,5 @@
 import React from 'react';
+import './Navbar.css';
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
@@ -7,43 +8,44 @@ function Navbar() {
         <>
             <AppBar position="static">
                 <Toolbar variant="dense">
-                    <Box className='cursor' >
+                <Box className='cursor'>
+                    <img className="Logo" src="https://i.imgur.com/j5INNrT.png" alt="LogoTipo" width="35px" height="35px" />
+                    </Box>
+                    <Box className='cursor'>
                         <Typography variant="h5" color="inherit">
-                                BlogPessoal
+                       
+                            SchoolBoard
                         </Typography>
                     </Box>
+                   
+                    <Box display="flex">
 
-                    <Box display="flex" justifyContent="start">
-                        <Box mx={1} className = 'cursor'>
-                            <Typography variant="h6" color="inherit">
-                                home
-                            </Typography>
-                        </Box>
-                        <Box mx={1} className = 'cursor'>
-                            <Typography variant="h6" color="inherit">
-                                postagens
-                            </Typography>
-                        </Box>
-                        <Box mx={1} className = 'cursor'>
-                            <Typography variant="h6" color="inherit">
-                                temas
-                            </Typography>
-                        </Box>
-                        <Box mx={1} className = 'cursor'>
-                            <Typography variant="h6" color="inherit">
-                                cadastrar tema
-                            </Typography>
-                        </Box>
-                        <Box mx={1} className = 'cursor'>
-                            
-                            <Typography variant="h6" color="inherit">
-                                <Link to='/login' className='text-decorator-none'>
+                        <Link to='/home' className='text-decorator-none'>
+                            <Box display="flex" justifyContent="start">
+                                <Box mx={1} className='cursor'>
+                                    <Typography variant="h6" color="inherit">
+                                        home
+                                    </Typography>
+                                </Box>
+                            </Box>
+                        </Link>
+
+                        <Link to='/contato' className='text-decorator-none'>
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    contato
+                                </Typography>
+                            </Box>
+                        </Link>
+
+                        <Link to='/login' className='text-decorator-none'>
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
                                     logout
-                                </Link> 
-                            </Typography>
+                                </Typography>
+                            </Box>
+                        </Link>
 
-                            
-                        </Box>
                     </Box>
 
                 </Toolbar>
@@ -51,5 +53,6 @@ function Navbar() {
         </>
     )
 }
+
 
 export default Navbar;

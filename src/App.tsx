@@ -6,18 +6,20 @@ import Footer from './components/statics/footer/Footer';
 import Lista from './components/lista/Lista';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
+import Contato from './paginas/contato/Contato';
 import './App.css';
 
 
 function App() {
   return (
     <Router>
-
       <Navbar />
-
         <Switch>
+          <div style={{minHeight: '100vh'}}>
 
-          <div >
+            <Route exact path='/'>
+              <Login />
+            </Route>
 
             <Route path='/login'>
               <Login />
@@ -25,15 +27,14 @@ function App() {
 
             <Route path='/home'>
               <Home />
-              <Lista />
             </Route>
 
+            <Route path='/contato'>
+              <Contato />
+            </Route>
           </div>
-
         </Switch>
-
       <Footer />
-
     </Router>
   );
 }
