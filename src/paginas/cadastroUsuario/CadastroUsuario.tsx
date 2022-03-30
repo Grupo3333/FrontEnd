@@ -53,12 +53,29 @@ function CadastroUsuario() {
 
     }
     async function cadastrar(e: ChangeEvent<HTMLFormElement>) { //Form pois o evento vem de um formulario
-        e.preventDefault()//impede att de pagina
+        e.preventDefault()
+
+        // Estrutura Condicional que verifica se as senhas batem e se a Senha tem mais de 8 caracteres
         if (confirmarSenha === user.senha && user.senha.length >= 8) {
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)//chama o endpoint do back-end / Olhar na service ln12
-            alert('Usuario cadastrado com sucesso')
+
+            //Tenta executar o cadastro
+            try {
+                await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+                alert("Usuário cadastrado com sucesso")
+
+            //Se houver erro, pegue o Erro e retorna uma msg
+            } catch (error) {
+                console.log(`Error: ${error}`)
+                
+                //Pode modificar a msg de acordo com o erro 
+                alert("Erro ao realizar o cadastro. Tente novamente")
+            }
+
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            alert("Dados inconsistentes")
+
+            setUser({ ...user, senha: "" }) // Reinicia o campo de Senha
+            setConfirmarSenha("")           // Reinicia o campo de Confirmar Senha
         }
     }
     return (
