@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import Navbar from './components/statics/navbar/Navbar';
 import Footer from './components/statics/footer/Footer';
-import Lista from './components/lista/Lista';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
 import Contato from './paginas/contato/Contato';
@@ -13,8 +13,11 @@ import './App.css';
 function App() {
   return (
     <Router>
+
       <Navbar />
+
         <Switch>
+
           <div style={{minHeight: '100vh'}}>
 
             <Route exact path='/'>
@@ -29,12 +32,20 @@ function App() {
               <Home />
             </Route>
 
+            <Route path='/cadastrousuario'>
+              <CadastroUsuario />
+            </Route>
+
             <Route path='/contato'>
               <Contato />
             </Route>
+
           </div>
+
         </Switch>
+
       <Footer />
+
     </Router>
   );
 }
