@@ -9,3 +9,6 @@
 .Logo{
     display: flex;
 }
+.MuiAppBar-colorPrimary{
+    background-color: #ffa734 !important;
+}
