@@ -5,12 +5,15 @@ import UserLogin from '../../models/UserLogin';
 import useLocalStorage from 'react-use-localstorage'
 import { login } from '../../services/Service';
 import './Login.css';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../store/tokens/action';
 
 function Login() {
 
     let history = useHistory();
 
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch();
+    const [token, setToken] = useState('');
 
     const [userLogin, setUserLogin] = useState<UserLogin>({
         id:0,
@@ -30,11 +33,12 @@ function Login() {
         })
     }
 
-        useEffect(()=> {
-            if(token != "") {
-                history.push('/home')
-            }
-        }, [token])
+    useEffect(() => {
+        if (token != '') { 
+            dispatch(addToken(token)) 
+            history.push('/home')
+        }
+    }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>){
         e.preventDefault();
