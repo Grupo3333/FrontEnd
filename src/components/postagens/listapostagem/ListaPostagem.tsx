@@ -1,30 +1,77 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { ChangeEvent, useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import Postagem from '../../../models/Postagem';
-import { busca } from '../../../services/Service'
-import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { busca, buscaId, put } from '../../../services/Service'
+import { Box, Card, CardActions, CardContent, Button, Typography, IconButton } from '@material-ui/core';
 import './ListaPostagem.css';
 import { useHistory } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
   let history = useHistory();
+  const { id } = useParams<{ id: string }>();
+  const [postagem, setPostagem] = useState<Postagem>({
+    id: 0,
+    titulo: "",
+    descricao: "",
+    imagem: "",
+    curtidas: 0,
+    tema: null
+  })
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
-);
+  );
 
   useEffect(() => {
     if (token == "") {
-      alert("VocÃª precisa estar logado")
+      toast.info("Você precisa estar logado", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       history.push("/login")
 
     }
   }, [token])
 
+  async function findByIdPostagem(id: string) {
+    await buscaId(`postagens/${id}`, setPostagem, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+  async function curtidas(id: number) {
+    await put(`/postagens/curtir/${id}`, postagem, setPostagem, {
+      headers: {
+        'Authorization': token
+      }
+    });
+  
+    
+    // toast.success('Postagem deletada com sucesso', {
+    //   position: "top-right",
+    //   autoClose: 2000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: false,
+    //   draggable: false,
+    //   theme: "colored",
+    //   progress: undefined,
+    // });
+  }
+ 
   async function getPost() {
     await busca("/postagens", setPosts, {
       headers: {
@@ -57,11 +104,15 @@ function ListaPostagem() {
                 </Typography>
                 <img src={post.imagem} alt="" width="100px" height="100px" />
                 <Typography variant="body2" component="p">
-                  {post.curtidas}
-                </Typography>
-                <Typography variant="body2" component="p">
                   {post.tema?.tema}
                 </Typography>
+                <IconButton aria-label="add to favorites" onClick = {() => { curtidas(post.id) }} >
+                  <FavoriteIcon />
+                  <Typography variant="body2" component="p">
+                    {post.curtidas}
+                  </Typography>
+                </IconButton>
+
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
