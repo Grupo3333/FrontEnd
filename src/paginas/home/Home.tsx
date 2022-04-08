@@ -5,13 +5,13 @@ import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/modalPostagem';
 import { useHistory, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../store/tokens/tokensReducer';
+import { UserState } from '../../store/user/userReducer';
 import { toast } from 'react-toastify';
 
 function Home() {
 
     let history = useHistory();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
     );
 

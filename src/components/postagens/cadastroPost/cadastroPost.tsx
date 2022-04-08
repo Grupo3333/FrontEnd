@@ -6,19 +6,32 @@ import Tema from '../../../models/Tema';
 import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { UserState } from '../../../store/user/userReducer';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import User from '../../../models/User';
 
 function CadastroPost() {
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([])
-    const token = useSelector<TokenState, TokenState["tokens"]>(
-        (state) => {
-            return state.tokens;
-        }
+    const token = useSelector<UserState, UserState["tokens"]>(
+        (state) => state.tokens
+      );
+
+    const userId = useSelector<UserState, UserState["id"]>(
+        (state) => state.id
     );
+
+    const [user, setUser] = useState<User>({
+        id: +userId,    // Faz uma conversão de String para Number
+        nome: '',
+        usuario: '',
+        senha: '',
+        foto: '',
+        perfil: '',
+    })
+    
 
     useEffect(() => {
         if (token == "") {
@@ -43,13 +56,15 @@ function CadastroPost() {
             tema: "",
             nivel: ""
         })
+
     const [postagem, setPostagem] = useState<Postagem>({
         id: 0,
         titulo: "",
         descricao: "",
         imagem: "",
         curtidas: 0,
-        tema: null
+        tema: null,
+        usuario: null
     })
 
     useEffect(() => {
@@ -87,7 +102,8 @@ function CadastroPost() {
         setPostagem({
             ...postagem,
             [e.target.name]: e.target.value,
-            tema: tema
+            tema: tema,
+            usuario: user
         })
 
     }
@@ -130,6 +146,7 @@ function CadastroPost() {
             }
 
         } else {
+            console.log(postagem);
             try {
                 await post(`/postagens`, postagem, setPostagem, {
                     headers: {

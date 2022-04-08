@@ -1,3 +1,7 @@
 .text-decorator-none{
     text-decoration: none;
 }
+.caixa {
+    background-color: #004B24;
+    background-image: url("https://i.imgur.com/qWy5jgZ.png");
+}

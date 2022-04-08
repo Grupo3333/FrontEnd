@@ -6,12 +6,12 @@ import { Typography, Box, Grid } from '@material-ui/core';
 import './Footer.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { UserState } from '../../../store/user/userReducer';
 
 
 function Footer() {
 
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
     );
     var footerComponent

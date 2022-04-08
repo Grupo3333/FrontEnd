@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { useDispatch, useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
-import { addToken } from '../../../store/tokens/action';
+import { UserState } from '../../../store/user/userReducer';
+import { addToken } from '../../../store/user/action';
 import { toast } from 'react-toastify';
 
 function Navbar() {
 
     let history = useHistory()
 
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
     );
     const dispatch = useDispatch();
@@ -83,6 +83,14 @@ function Navbar() {
                             Logout
                         </Typography>
                     </Box>
+
+                    <Link to="/feed" className="text-decorator-none">
+                        <Box mx={1} className='cursor navbar'>
+                            <Typography variant="h6" color="inherit">
+                                Feed
+                            </Typography>
+                        </Box>
+                    </Link>
 
 
                 </Box>

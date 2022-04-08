@@ -6,8 +6,9 @@ import useLocalStorage from 'react-use-localstorage'
 import { login } from '../../services/Service';
 import './Login.css';
 import { useDispatch } from 'react-redux';
-import { addToken } from '../../store/tokens/action';
+import { addToken, addId } from '../../store/user/action';
 import { toast } from 'react-toastify';
+import Contato from '../contato/Contato';
 
 function Login() {
 
@@ -25,6 +26,16 @@ function Login() {
         foto: "",
         token:""
     })
+     // Crie mais um State para pegar os dados retornados a API
+     const [respUserLogin, setRespUserLogin] = useState<UserLogin>({
+        id: 0,
+        nome:'',
+        usuario: '',
+        senha: '',
+        token: '',
+        foto: "",
+        perfil: ""
+    })
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
@@ -35,17 +46,24 @@ function Login() {
     }
 
     useEffect(() => {
-        if (token != '') { 
-            dispatch(addToken(token)) 
+        if(respUserLogin.token !== ""){
+
+            // Verifica os dados pelo console (Opcional)
+            console.log("Token: " + respUserLogin.token)
+            console.log("ID: " + respUserLogin.id)
+
+            // Guarda as informações dentro do Redux (Store)
+            dispatch(addToken(respUserLogin.token)) 
+            dispatch(addId(respUserLogin.id.toString()))    // Faz uma conversão de Number para String
             history.push('/home')
         }
-    }, [token])
+    }, [respUserLogin.token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>){
         e.preventDefault();
 
         try{
-            await login(`/usuarios/logar`, userLogin, setToken)
+            await login(`/usuarios/logar`, userLogin, setRespUserLogin)
 
             toast.success('Usuário logado com sucesso', {
                 position: "top-right",
@@ -101,7 +119,11 @@ function Login() {
                 </Box>
             </Grid>
             <Grid xs={6} className='imagem' />
+            <Grid>
+                <Contato />
+            </Grid>
         </Grid>
+    
     );
 }
 

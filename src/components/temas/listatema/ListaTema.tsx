@@ -5,13 +5,13 @@ import Tema from '../../../models/Tema';
 import './ListaTema.css';
 import { busca } from '../../../services/Service';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { UserState } from '../../../store/user/userReducer';
 import { toast } from 'react-toastify';
 
 function ListaTema() {
 
   const [temas, setTemas] = useState<Tema[]>([])
-  const token = useSelector<TokenState, TokenState["tokens"]>(
+  const token = useSelector<UserState, UserState["tokens"]>(
     (state) => state.tokens
 );
   let history = useHistory();
@@ -48,7 +48,7 @@ function ListaTema() {
     <>
       {
         temas.map(tema => (
-          <Box m={2} >
+          <Box m={2} >  
             <Card variant="outlined">
               <CardContent>
                 <Typography color="textSecondary" gutterBottom>

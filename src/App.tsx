@@ -18,19 +18,20 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Feed from './paginas/feed/Feed';
 
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store } >
       <ToastContainer />
-      <Router>
+      <Router >
 
         <Navbar />
 
-        <Switch>
+        <Switch >
 
-          <div style={{ minHeight: '100vh' }}>
+          <div style={{ minHeight: '100vh' }} className="caixa">
 
             <Route exact path='/'>
               <Login />
@@ -44,11 +45,15 @@ function App() {
               <Home />
             </Route>
 
-            <Route path='/cadastrousuario'>
+            <Route path='/feed'>
+              <Feed />
+            </Route>
+
+            <Route path='/cadastrousuario' >
               <CadastroUsuario />
             </Route>
 
-            <Route path='/temas'>
+            <Route path='/temas' >
               <ListaTema />
             </Route>
 
@@ -77,6 +82,7 @@ function App() {
             <Route path='/contato'>
               <Contato />
             </Route>
+            
 
           </div>
 

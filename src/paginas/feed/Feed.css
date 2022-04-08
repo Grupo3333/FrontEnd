@@ -1,0 +1,31 @@
+.caixa {
+    background-color: #004B24;
+    background-image: url("https://i.imgur.com/qWy5jgZ.png");
+    
+}
+
+.titulo {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.botao2 { 
+    background-color: #ffa734 !important;
+    color: white !important;
+}
+
+.postagem {
+    background-color: white !important;
+    display: grid;
+    justify-content: center
+}
+
+.perfil {
+    background-color: white !important;
+    display: grid;
+    justify-content: center;
+    height: 60vh;
+    margin-top: 2vh;
+    margin-left: 0vh;
+}
+

@@ -6,7 +6,7 @@ import { Box, Card, CardActions, CardContent, Button, Typography, IconButton } f
 import './ListaPostagem.css';
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { UserState } from '../../../store/user/userReducer';
 import { toast } from 'react-toastify';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
@@ -22,9 +22,10 @@ function ListaPostagem() {
     descricao: "",
     imagem: "",
     curtidas: 0,
-    tema: null
+    tema: null,
+    usuario: null
   })
-  const token = useSelector<TokenState, TokenState["tokens"]>(
+  const token = useSelector<UserState, UserState["tokens"]>(
     (state) => state.tokens
   );
 
@@ -57,19 +58,9 @@ function ListaPostagem() {
       headers: {
         'Authorization': token
       }
-    });
-  
-    
-    // toast.success('Postagem deletada com sucesso', {
-    //   position: "top-right",
-    //   autoClose: 2000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: false,
-    //   draggable: false,
-    //   theme: "colored",
-    //   progress: undefined,
-    // });
+    }
+    );
+    getPost()
   }
  
   async function getPost() {
@@ -96,6 +87,12 @@ function ListaPostagem() {
                 <Typography color="textSecondary" gutterBottom>
                   Postagens
                 </Typography>
+                <Typography variant="body2" component="p">
+                {post.usuario?.nome}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {post.usuario?.perfil}
+              </Typography>
                 <Typography variant="h5" component="h2">
                   {post.titulo}
                 </Typography>
