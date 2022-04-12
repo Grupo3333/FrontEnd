@@ -62,7 +62,7 @@ function ListaPostagem() {
     );
     getPost()
   }
- 
+
   async function getPost() {
     await busca("/postagens", setPosts, {
       headers: {
@@ -77,33 +77,37 @@ function ListaPostagem() {
 
   }, [posts.length])
 
+  
+
   return (
     <>
       {
         posts.map(post => (
           <Box m={2} >
-            <Card variant="outlined">
+            <Card variant="outlined" >
               <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  Postagens
-                </Typography>
-                <Typography variant="body2" component="p">
-                {post.usuario?.nome}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {post.usuario?.perfil}
-              </Typography>
+                <Box display="flex" justifyContent="left">
+                  <Box >
+                    <img src={post.usuario?.foto} alt="foto" width="60px" height="60px" className='foto' />
+                  </Box>
+                  <Typography variant="h6" component="p">
+                    {post.usuario?.nome}
+                    <br/>
+                    {post.usuario?.perfil}
+                  </Typography>
+                </Box>
+
                 <Typography variant="h5" component="h2">
                   {post.titulo}
                 </Typography>
                 <Typography variant="body2" component="p">
                   {post.descricao}
                 </Typography>
-                <img src={post.imagem} alt="" width="100px" height="100px" />
+                <img src={post.imagem} alt="" width="100%" className='img'/>
                 <Typography variant="body2" component="p">
                   {post.tema?.tema}
                 </Typography>
-                <IconButton aria-label="add to favorites" onClick = {() => { curtidas(post.id) }} >
+                <IconButton aria-label="add to favorites" onClick={() => { curtidas(post.id) }} >
                   <FavoriteIcon />
                   <Typography variant="body2" component="p">
                     {post.curtidas}

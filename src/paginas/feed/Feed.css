@@ -25,7 +25,12 @@
     display: grid;
     justify-content: center;
     height: 60vh;
-    margin-top: 2vh;
-    margin-left: 0vh;
+    border-radius: 1% !important;
+    padding: 1% !important;
+    margin-top: 1% !important;
+}
+
+.foto {
+    border-radius: 50%
 }
 

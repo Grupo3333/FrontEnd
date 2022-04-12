@@ -182,7 +182,7 @@ function CadastroPost() {
     }
 
     function back() {
-        history.push('/posts')
+        history.push('/feed')
     }
 
     return (
@@ -217,7 +217,7 @@ function CadastroPost() {
                     <Button type="submit" variant="contained" color="primary" className='margin'>
                         Finalizar
                     </Button>
-                    <Link to='/posts' className='text-decorator-none'>
+                    <Link to='/feed' className='text-decorator-none'>
                         <Button variant='contained' color='secondary' className='btnCancelar'>
                             Cancelar
                         </Button>
