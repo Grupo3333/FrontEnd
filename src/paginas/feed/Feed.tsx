@@ -11,7 +11,7 @@ import User from '../../models/User'
 import { useState } from 'react';
 import { buscaId } from '../../services/Service';
 
-function Home() {
+function Feed() {
 
     let history = useHistory();
     // Pega o ID guardado no Store
@@ -70,43 +70,56 @@ function Home() {
         <>
 
             <Grid container direction="row" className='caixa'>
-                <Grid  item xs={3} className='perfil' >
+
+                <Grid xs={1} />
+
+                <Grid item xs={2} className='perfil'>
                     <Box display="flex" justifyContent="center">
-                        <Box>
-                            <img src="https://i.imgur.com/H88yIo2.png" alt="" width="120px" height="120px" />
+                        <Box >
+                            
+                            <img src={user.foto} alt="foto" className='foto' width="150px" height="150px" />
                         </Box>
                     </Box>
                     <Box display="flex" justifyContent="center">
-                    <Typography variant="body2" component="p">
+                        <Typography variant="h5" component="p">
                             {user.nome}
                         </Typography>
                     </Box>
-                    
+
                     <Box display="flex" justifyContent="center">
-                    <Typography variant="body2" component="p">
+                        <Typography variant="h6" component="p">
                             {user.perfil}
                         </Typography>
                     </Box>
-                        
+
 
                     <Box display="flex" justifyContent="center" marginTop={2}>
                         <Link to="/posts" className="text-decorator-none">
-                            <Button  className='botao2'>Minhas Postagens<br /></Button>
+                            <Button className='botao2'>Minhas Postagens<br /></Button>
                         </Link>
                     </Box>
-                    <Box display="flex" justifyContent="center">
-                        <Box marginTop={2} className='botao2'>
+                    
+                    <Box display="flex" justifyContent="center" marginTop={2}>
+                        
                             <ModalPostagem />
-                        </Box>
+                        
                     </Box>
+                    <Grid xs={1} />
 
 
                 </Grid>
 
 
-                <Grid xs={9} className='postagens'>
+
+                <Grid xs={1} />
+
+                <Grid xs={6} className='postagens'>
                     <ListaPostagem />
                 </Grid>
+
+                <Grid xs={1} />
+
+
 
 
             </Grid>
@@ -114,4 +127,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Feed;

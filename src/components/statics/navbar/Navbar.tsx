@@ -40,23 +40,16 @@ function Navbar() {
 
                 <Box display="flex"  >
 
-                    <Link to="/home" className="text-decorator-none">
+                    <Link to="/feed" className="text-decorator-none">
                         <Box className='cursor'>
                             <img className="Logo" src="https://i.imgur.com/j5INNrT.png" alt="LogoTipo" width="35px" height="35px" />
                         </Box>
 
                     </Link>
-                    <Link to="/home" className="text-decorator-none">
+                    <Link to="/feed" className="text-decorator-none">
                         <Box className='cursor'>
                             <Typography variant="h5" color="inherit">
                                 SchoolBoard
-                            </Typography>
-                        </Box>
-                    </Link>
-                    <Link to="/posts" className="text-decorator-none">
-                        <Box mx={1} className='cursor navbar'>
-                            <Typography variant="h6" color="inherit">
-                                Postagens
                             </Typography>
                         </Box>
                     </Link>
@@ -84,21 +77,11 @@ function Navbar() {
                         </Typography>
                     </Box>
 
-                    <Link to="/feed" className="text-decorator-none">
-                        <Box mx={1} className='cursor navbar'>
-                            <Typography variant="h6" color="inherit">
-                                Feed
-                            </Typography>
-                        </Box>
-                    </Link>
-
-
                 </Box>
 
             </Toolbar>
         </AppBar>
     }
-
 
     return (
         <>
