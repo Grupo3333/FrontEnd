@@ -1,5 +1,4 @@
 .imagem2{
-
     background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
     background-repeat: no-repeat;
     width: 100vh;
@@ -18,4 +17,12 @@
 
 .btnCancelar{
     margin-right: 20px !important;
+    background-color: #ffa734 !important;
+    color: white !important;
+}
+.btnCadastrar{
+    margin-right: 20px !important;
+    background-color: #004B24 !important;
+    color: white !important;
+    border-color: white !important;
 }
