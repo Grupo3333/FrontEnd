@@ -182,6 +182,7 @@ function CadastroPost() {
     }
 
     function back() {
+        history.push("/")
         history.push('/feed')
     }
 
@@ -214,11 +215,11 @@ function CadastroPost() {
 
                 </FormControl>
                 <Grid container >
-                    <Button type="submit" variant="contained" color="primary" className='margin'>
+                    <Button type="submit" variant="contained" color="primary" className='margin botaoCadPostFinalizar'>
                         Finalizar
                     </Button>
-                    <Link to='/feed' className='text-decorator-none'>
-                        <Button variant='contained' color='secondary' className='btnCancelar'>
+                    <Link to='/feed' className='text-decorator-none' >
+                        <Button variant='contained' color='secondary' className='btnCancelar botaoCadPostCancelar'>
                             Cancelar
                         </Button>
                     </Link>

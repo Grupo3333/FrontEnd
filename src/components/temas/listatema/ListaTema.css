@@ -5,3 +5,19 @@
     background-color: #004B24;
     background-image: url("https://i.imgur.com/qWy5jgZ.png");
 }
+.botaoListTemaAtual{
+    color: white !important;
+    background-color: #004B24 !important;
+}
+.botaoListTemaDelet{
+    background-color: #ffa734 !important;
+}
+.listaTema {
+    background-color: white !important;
+  
+    justify-content: center;
+  
+    border-radius: 1% !important;
+    
+    margin: 1% !important;
+}

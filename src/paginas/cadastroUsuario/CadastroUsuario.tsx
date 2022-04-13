@@ -7,6 +7,11 @@ import { Link } from 'react-router-dom';
 import './CadastroUsuario.css';
 import { toast } from 'react-toastify';
 
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
+
 function CadastroUsuario() {
 
     let history = useHistory();
@@ -73,10 +78,10 @@ function CadastroUsuario() {
                     progress: undefined,
                 });
 
-            //Se houver erro, pegue o Erro e retorna uma msg
+                //Se houver erro, pegue o Erro e retorna uma msg
             } catch (error) {
                 console.log(`Error: ${error}`)
-                
+
                 //Pode modificar a msg de acordo com o erro 
                 toast.error("Erro ao realizar o cadastro. Tente novamente", {
                     position: "top-right",
@@ -117,8 +122,14 @@ function CadastroUsuario() {
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' variant='outlined' name='usuario' margin='normal' type='email' fullWidth placeholder="Seu email funcionará como um usuário válido. Ex: exemplo@exemplo.com" required />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth placeholder="Senha de no mínimo 8 caracteres" required />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' placeholder="Digite novamente a sua senha" fullWidth required />
-                        <TextField value={user.perfil} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='perfil' variant='outlined' name='perfil' margin='normal' placeholder="Perfil de usuário (aluno ou professor)" fullWidth required />
+                        {/* <TextField value={user.perfil} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='perfil' variant='outlined' name='perfil' margin='normal' placeholder="Perfil de usuário (aluno ou professor)" fullWidth required /> */}
                         <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='foto' variant='outlined' name='foto' margin='normal' fullWidth placeholder="Foto de perfil (URL)" />
+                        
+                        <FormLabel component="legend">Perfil</FormLabel>
+                        <RadioGroup aria-label="Perfil" name="perfil" value={user.perfil} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}>
+                            <FormControlLabel value="Professor" control={<Radio />} label="Professor" />
+                            <FormControlLabel value="Aluno" control={<Radio />} label="Aluno" />
+                        </RadioGroup>
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
                                 <Button variant='contained' color='secondary' className='btnCancelar'>

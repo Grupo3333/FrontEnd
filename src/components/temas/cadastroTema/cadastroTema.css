@@ -1,3 +1,17 @@
-.topo{
-    margin-top: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+.cadTemaTitulo{
+    font-family: 'Fredericka the Great', cursive !important ;
+    color: white !important;
+}
+
+.marginCadTema{
+    padding-top: 20px;
+}
+.botaoCadTemaFinalizar{
+    color: white !important;
+    background-color: #004B24 !important;
+}
+.botaoCadTemaCancelar{
+    background-color: #ffa734 !important;
 }
