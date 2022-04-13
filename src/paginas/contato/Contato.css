@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 .Sobre{
     color:white !important;
+    font-family: 'Fredericka the Great', cursive !important;
+    text-align: center !important;
 }
 .redesC{
     font-size: 60px !important;
