@@ -13,6 +13,9 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 
+
+
+
 function CadastroTema() {
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
@@ -90,22 +93,22 @@ function CadastroTema() {
                     progress: undefined,
                 });
 
-            // CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
+                // CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
             } catch (error) {
                 console.log(`Error: ${error}`)
                 toast.error('Dados inconsistentes.', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-            });  
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
             }
 
-        // Se o ID for indefinido, tente Cadastrar
+            // Se o ID for indefinido, tente Cadastrar
         } else {
 
             // TRY: Tenta executar o cadastro
@@ -115,7 +118,7 @@ function CadastroTema() {
                         'Authorization': token
                     }
                 })
-                
+
                 toast.success('Tema cadastrado com sucesso', {
                     position: "top-right",
                     autoClose: 2000,
@@ -125,8 +128,8 @@ function CadastroTema() {
                     draggable: false,
                     theme: "colored",
                     progress: undefined,
-                });            
-            // CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
+                });
+                // CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
             } catch (error) {
                 console.log(`Error: ${error}`)
                 toast.error('Dados inconsistentes.', {
@@ -138,36 +141,37 @@ function CadastroTema() {
                     draggable: false,
                     theme: "colored",
                     progress: undefined,
-                });              }
+                });
+            }
         }
-        
+
         back()
     }
-    
+
 
     function back() {
         history.push('/temas')
     }
-
+    
     return (
         <Container maxWidth="sm" className="marginCadTema ">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" className='cadTemaTitulo' >Formulário de cadastro tema</Typography>
                 <TextField value={tema.tema} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="tema" label="Tema" variant="outlined" name="tema" margin="normal" fullWidth />
                 {/* <TextField value={tema.nivel} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="nivel" label="Nível" variant="outlined" name="nivel" margin="normal" fullWidth /> */}
-                <FormLabel component="legend">Nível</FormLabel>
-                        <RadioGroup aria-label="Nível" name="nivel" value={tema.nivel} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)}>
-                            <FormControlLabel value="Básico" control={<Radio />} label="Básico" />
-                            <FormControlLabel value="Intermediário" control={<Radio />} label="Intermediário" />
-                            <FormControlLabel value="Avançado" control={<Radio />} label="Avançado" />
-                        </RadioGroup>
+                <FormLabel component="legend" className='radioGroupTema'>Nível</FormLabel>
+                <RadioGroup aria-label="Nível" name="nivel" value={tema.nivel} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} className="radioGroupTema">
+                    <FormControlLabel value="Básico" control={<Radio />} label="Básico" />
+                    <FormControlLabel value="Intermediário" control={<Radio />} label="Intermediário" />
+                    <FormControlLabel value="Avançado" control={<Radio />} label="Avançado" />
+                </RadioGroup>
                 <Button type="submit" variant="outlined" color="inherit" className='margin botaoCadTemaFinalizar'>
                     Finalizar
                 </Button>
                 <Link to='/feed'>
-                <Button type="submit" variant="contained" color="primary" className="botaoCadTemaCancelar">
-                    Cancelar
-                </Button>
+                    <Button type="submit" variant="contained" color="primary" className="botaoCadTemaCancelar">
+                        Cancelar
+                    </Button>
                 </Link>
             </form>
         </Container>

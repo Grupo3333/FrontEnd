@@ -113,9 +113,13 @@ function CadastroUsuario() {
     }
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs={6} className='imagem2'></Grid>
+            <Grid item xs={6} >
+            <Box display="flex" flex-direction= "column" className='imagem2'>
+
+            </Box>
+            </Grid>
             <Grid item xs={6}>
-                <Box paddingX={10}>
+                <Box paddingX={7}>
                     <form onSubmit={cadastrar}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textosCAD'>Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' variant='outlined' name='nome' margin='normal' fullWidth placeholder='Digite seu nome completo' required />
@@ -125,10 +129,10 @@ function CadastroUsuario() {
                         {/* <TextField value={user.perfil} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='perfil' variant='outlined' name='perfil' margin='normal' placeholder="Perfil de usuário (aluno ou professor)" fullWidth required /> */}
                         <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='foto' variant='outlined' name='foto' margin='normal' fullWidth placeholder="Foto de perfil (URL)" />
                         
-                        <FormLabel component="legend">Perfil</FormLabel>
+                        <FormLabel component="legend" className='radioGroupCadastroUsuario'>Perfil</FormLabel>
                         <RadioGroup aria-label="Perfil" name="perfil" value={user.perfil} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}>
-                            <FormControlLabel value="Professor" control={<Radio />} label="Professor" />
-                            <FormControlLabel value="Aluno" control={<Radio />} label="Aluno" />
+                            <FormControlLabel value="Professor" control={<Radio />} label="Professor" className='radioGroupCadastroUsuario'/>
+                            <FormControlLabel value="Aluno" control={<Radio />} label="Aluno" className='radioGroupCadastroUsuario' />
                         </RadioGroup>
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>

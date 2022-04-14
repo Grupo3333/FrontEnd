@@ -83,7 +83,7 @@ function ListaPostagem() {
     <>
       {
         posts.map(post => (
-          <Box m={2} >
+          <Box padding={2} >
             <Card variant="outlined" >
               <CardContent>
                 <Box display="flex" justifyContent="left">

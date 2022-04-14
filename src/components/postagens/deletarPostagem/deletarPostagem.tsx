@@ -50,7 +50,7 @@ function DeletarPostagem() {
   }
 
   function sim() {
-    history.push('/posts')
+    history.push('/feed')
     deleteId(`/postagens/${id}`, {
       headers: {
         'Authorization': token
@@ -69,12 +69,12 @@ function DeletarPostagem() {
   }
 
   function nao() {
-    history.push('/posts')
+    history.push('/feed')
   }
 
   return (
     <>
-      <Box m={2}>
+      <Box padding={2}>
         <Card variant="outlined" >
           <CardContent>
             <Box justifyContent="center">

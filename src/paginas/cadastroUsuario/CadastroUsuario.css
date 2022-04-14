@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 .imagem2{
-    background-image: url(https://images-ext-2.discordapp.net/external/JlKl9I3nkEo52SNhcjotWMpndHBpNw879N_pBkVRUSU/https/i.imgur.com/KugG9uO.png);
+    background-image: url(https://i.imgur.com/aMth78L.png);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
@@ -32,4 +32,7 @@
 .textosCAD{
     color: white !important;
     font-family: 'Fredericka the Great', cursive !important;
+}
+.radioGroupCadastroUsuario{
+    color: white !important;
 }

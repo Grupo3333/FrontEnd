@@ -42,7 +42,7 @@ function Navbar() {
 
                     <Link to="/feed" className="text-decorator-none">
                         <Box className='cursor'>
-                            <img className="Logo" src="https://i.imgur.com/j5INNrT.png" alt="LogoTipo" width="35px" height="35px" />
+                            <img className="Logo" src="https://i.imgur.com/aMth78L.png" alt="LogoTipo" width="35px" height="35px" />
                         </Box>
 
                     </Link>
