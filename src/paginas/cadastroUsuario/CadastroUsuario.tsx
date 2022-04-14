@@ -112,7 +112,7 @@ function CadastroUsuario() {
             <Grid item xs={6}>
                 <Box paddingX={10}>
                     <form onSubmit={cadastrar}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textosCAD'>Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' variant='outlined' name='nome' margin='normal' fullWidth placeholder='Digite seu nome completo' required />
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' variant='outlined' name='usuario' margin='normal' type='email' fullWidth placeholder="Seu email funcionará como um usuário válido. Ex: exemplo@exemplo.com" required />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth placeholder="Senha de no mínimo 8 caracteres" required />

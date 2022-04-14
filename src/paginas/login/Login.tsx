@@ -95,7 +95,7 @@ function Login() {
             <Grid item xs={6}>
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit} className="form-itens">
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Entrar</Typography>
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textoENTRAR'>Entrar</Typography>
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' variant='outlined' name='usuario' margin='normal' placeholder="Usuário" fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='senha' variant='outlined' name='senha'
@@ -126,7 +126,11 @@ function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} className='imagem' />
+            <Grid xs={6} >
+            <Box display="flex" flex-direction= "column" className='imagem'>
+
+            </Box>
+            </Grid>
             <Grid xs={12} className='postagens'>
                 <TabPostagem />
             </Grid>

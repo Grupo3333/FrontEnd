@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
 .imagem2{
-    background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
+    background-image: url(https://images-ext-2.discordapp.net/external/JlKl9I3nkEo52SNhcjotWMpndHBpNw879N_pBkVRUSU/https/i.imgur.com/KugG9uO.png);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
+    margin-left: 80px;
 }
 
 .text-decorator-none{
@@ -25,4 +28,8 @@
     background-color: #004B24 !important;
     color: white !important;
     border-color: white !important;
+}
+.textosCAD{
+    color: white !important;
+    font-family: 'Fredericka the Great', cursive !important;
 }
