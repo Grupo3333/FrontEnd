@@ -48,11 +48,12 @@ export default function RecipeReviewCard() {
                 <Grid item xs={6} sm={6}  >
                     <Box paddingX={20} >
                         <Typography
-                            variant="h5"
+                            variant="h4"
                             gutterBottom
-                            component="h5"
+                            component="h4"
                             className='Sobre'>
-                            Com base na ODS 4. Educação de qualidade
+                            Com base na ODS 4. Educação de qualidade, decididos 
+                            desenvolver uma rede social que une professores e alunos dispostos a aprender e compartilhar conhecimento.
                         </Typography>
 
                     </Box>
@@ -60,12 +61,11 @@ export default function RecipeReviewCard() {
                 <Grid item xs={6} sm={6}  >
                     <Box paddingX={20} >
                         <Typography
-                            variant="h1"
+                            variant="h4"
                             gutterBottom
-                            component="h1"
-                            align="center"
+                            component="h4"
                             className='Sobre'>
-                            Quem queremos atingir
+                            No nosso espaço permitimos a publicação de tutoriais sobre diversos assuntos e níveis.
                         </Typography>
 
                     </Box>

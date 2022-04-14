@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
 .text-decorator-none {
     text-decoration: none;
 }
 
 .imagem {
 
-    background-image: url(https://cdn.discordapp.com/attachments/941327934461988904/963443644671602688/novolg.png);
+    background-image: url(https://images-ext-2.discordapp.net/external/JlKl9I3nkEo52SNhcjotWMpndHBpNw879N_pBkVRUSU/https/i.imgur.com/KugG9uO.png);
     background-repeat: no-repeat;
     width: 80vh;
     min-height: 80vh;
     background-size: cover;
     background-position: center;
+    margin-left: 130px;
 }
 
 .textos1 {
@@ -39,4 +42,9 @@ input {
     background-color: #ffa734 !important;
     color: white !important;
 }
+.textoENTRAR{
+    color: white !important;
+    font-family: 'Fredericka the Great', cursive !important;
+}
+
 
